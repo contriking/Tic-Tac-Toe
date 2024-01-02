@@ -6,6 +6,7 @@ let msg=document.querySelector("#msg");
 
 let turn=true;
 
+// creating an array of winning pattern
 const winpattern=[
     [0,1,2],
     [0,3,6],
@@ -17,6 +18,7 @@ const winpattern=[
     [6,7,8],
 ];
 
+// adding click event on every button 
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
         if(turn){
@@ -37,13 +39,14 @@ const showWinner=(winner)=>{
     msgCont.classList.remove("hide");
 }
 
+// Func to prevent moves after game is over
 const disableBoxes=()=>{
     for( let box of boxes){
         box.disabled=true;
     }
 };
 
-
+// Func to start a new game
 const enableBoxes=()=>{
     for( let box of boxes){
         box.disabled=false;
@@ -51,7 +54,7 @@ const enableBoxes=()=>{
     }
 };
 
-
+// To check winner on every move 
 const checkwinner=()=>{
     for(pattern of winpattern){
         
@@ -68,6 +71,7 @@ const checkwinner=()=>{
     }
 }
 
+// Func to reset game
 const resetGame=()=>{
     turn=true;
     enableBoxes();
